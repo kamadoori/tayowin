@@ -1,0 +1,4 @@
+.output
+dist-electron
+node_modules
+release
