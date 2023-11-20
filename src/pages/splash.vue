@@ -14,8 +14,11 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'splash',
+})
+
 function init() {
-  console.log('init')
   useInit().setInitialized(true)
   useRouter().push('/')
 }

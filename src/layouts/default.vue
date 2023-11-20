@@ -1,7 +1,9 @@
 <template>
   <div>
-    <TayoHeader />
-    <NuxtPage />
+    <div class="flex flex-row w-screen">
+      <TayoHeader class="m-1" />
+      <NuxtPage class="flex-grow" />
+    </div>
     <TayoFooter />
   </div>
 </template>

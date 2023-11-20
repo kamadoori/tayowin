@@ -3,16 +3,14 @@
 // tslint:disable
 import type { BinaryWriteOptions } from '@protobuf-ts/runtime'
 import type { IBinaryWriter } from '@protobuf-ts/runtime'
-import {
-  WireType,
-  UnknownFieldHandler,
-  reflectionMergePartial,
-  MESSAGE_TYPE,
-  MessageType,
-} from '@protobuf-ts/runtime'
+import { WireType } from '@protobuf-ts/runtime'
 import type { BinaryReadOptions } from '@protobuf-ts/runtime'
 import type { IBinaryReader } from '@protobuf-ts/runtime'
+import { UnknownFieldHandler } from '@protobuf-ts/runtime'
 import type { PartialMessage } from '@protobuf-ts/runtime'
+import { reflectionMergePartial } from '@protobuf-ts/runtime'
+import { MESSAGE_TYPE } from '@protobuf-ts/runtime'
+import { MessageType } from '@protobuf-ts/runtime'
 /**
  * @generated from protobuf message Backup
  */
@@ -466,42 +464,42 @@ class Backup$Type extends MessageType<Backup> {
         no: 1,
         name: 'backupManga',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupManga,
       },
       {
         no: 2,
         name: 'backupCategories',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupCategory,
       },
       {
         no: 100,
         name: 'backupBrokenSources',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BrokenBackupSource,
       },
       {
         no: 101,
         name: 'backupSources',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupSource,
       },
       {
         no: 104,
         name: 'backupPreferences',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupPreference,
       },
       {
         no: 105,
         name: 'backupSourcePreferences',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupSourcePreferences,
       },
     ])
@@ -673,22 +671,22 @@ export const Backup = new Backup$Type()
 class BackupCategory$Type extends MessageType<BackupCategory> {
   constructor() {
     super('BackupCategory', [
-      { no: 1, name: 'name', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+      { no: 1, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       {
         no: 2,
         name: 'order',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 100,
         name: 'flags',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }
@@ -783,75 +781,75 @@ export const BackupCategory = new BackupCategory$Type()
 class BackupChapter$Type extends MessageType<BackupChapter> {
   constructor() {
     super('BackupChapter', [
-      { no: 1, name: 'url', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
-      { no: 2, name: 'name', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+      { no: 1, name: 'url', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       {
         no: 3,
         name: 'scanlator',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 4,
         name: 'read',
         kind: 'scalar',
         opt: true,
-        T: 8 /* ScalarType.BOOL */,
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 5,
         name: 'bookmark',
         kind: 'scalar',
         opt: true,
-        T: 8 /* ScalarType.BOOL */,
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 6,
         name: 'lastPageRead',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 7,
         name: 'dateFetch',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 8,
         name: 'dateUpload',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 9,
         name: 'chapterNumber',
         kind: 'scalar',
         opt: true,
-        T: 2 /* ScalarType.FLOAT */,
+        T: 2 /*ScalarType.FLOAT*/,
       },
       {
         no: 10,
         name: 'sourceOrder',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 11,
         name: 'lastModifiedAt',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }
@@ -1002,21 +1000,21 @@ export const BackupChapter = new BackupChapter$Type()
 class BackupHistory$Type extends MessageType<BackupHistory> {
   constructor() {
     super('BackupHistory', [
-      { no: 1, name: 'url', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+      { no: 1, name: 'url', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       {
         no: 2,
         name: 'lastRead',
         kind: 'scalar',
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 3,
         name: 'readDuration',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }
@@ -1111,20 +1109,20 @@ export const BackupHistory = new BackupHistory$Type()
 class BrokenBackupHistory$Type extends MessageType<BrokenBackupHistory> {
   constructor() {
     super('BrokenBackupHistory', [
-      { no: 9999, name: 'url', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+      { no: 9999, name: 'url', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       {
         no: 1,
         name: 'lastRead',
         kind: 'scalar',
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 2,
         name: 'readDuration',
         kind: 'scalar',
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }
@@ -1223,94 +1221,94 @@ class BackupManga$Type extends MessageType<BackupManga> {
         no: 1,
         name: 'source',
         kind: 'scalar',
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
-      { no: 2, name: 'url', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+      { no: 2, name: 'url', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       {
         no: 3,
         name: 'title',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 4,
         name: 'artist',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 5,
         name: 'author',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 6,
         name: 'description',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 7,
         name: 'genre',
         kind: 'scalar',
-        repeat: 2 /* RepeatType.UNPACKED */,
-        T: 9 /* ScalarType.STRING */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 8,
         name: 'status',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 9,
         name: 'thumbnailUrl',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 13,
         name: 'dateAdded',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 14,
         name: 'viewer',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 16,
         name: 'chapters',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupChapter,
       },
       {
         no: 17,
         name: 'categories',
         kind: 'scalar',
-        repeat: 2 /* RepeatType.UNPACKED */,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 18,
         name: 'tracking',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupTracking,
       },
       {
@@ -1318,27 +1316,27 @@ class BackupManga$Type extends MessageType<BackupManga> {
         name: 'favorite',
         kind: 'scalar',
         opt: true,
-        T: 8 /* ScalarType.BOOL */,
+        T: 8 /*ScalarType.BOOL*/,
       },
       {
         no: 101,
         name: 'chapterFlags',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 103,
         name: 'viewer_flags',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 104,
         name: 'history',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupHistory,
       },
       {
@@ -1346,23 +1344,23 @@ class BackupManga$Type extends MessageType<BackupManga> {
         name: 'updateStrategy',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 106,
         name: 'lastModifiedAt',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 107,
         name: 'favoriteModifiedAt',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }
@@ -1615,8 +1613,8 @@ export const BackupManga = new BackupManga$Type()
 class BackupPreference$Type extends MessageType<BackupPreference> {
   constructor() {
     super('BackupPreference', [
-      { no: 1, name: 'key', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
-      { no: 2, name: 'value', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+      { no: 1, name: 'key', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
+      { no: 2, name: 'value', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
     ])
   }
 
@@ -1703,17 +1701,12 @@ export const BackupPreference = new BackupPreference$Type()
 class BackupSourcePreferences$Type extends MessageType<BackupSourcePreferences> {
   constructor() {
     super('BackupSourcePreferences', [
-      {
-        no: 1,
-        name: 'sourceKey',
-        kind: 'scalar',
-        T: 9 /* ScalarType.STRING */,
-      },
+      { no: 1, name: 'sourceKey', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       {
         no: 2,
         name: 'prefs',
         kind: 'message',
-        repeat: 2 /* RepeatType.UNPACKED */,
+        repeat: 2 /*RepeatType.UNPACKED*/,
         T: () => BackupPreference,
       },
     ])
@@ -1819,14 +1812,14 @@ class BackupSource$Type extends MessageType<BackupSource> {
         name: 'name',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 2,
         name: 'sourceId',
         kind: 'scalar',
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }
@@ -1914,13 +1907,13 @@ export const BackupSource = new BackupSource$Type()
 class BrokenBackupSource$Type extends MessageType<BrokenBackupSource> {
   constructor() {
     super('BrokenBackupSource', [
-      { no: 9999, name: 'name', kind: 'scalar', T: 9 /* ScalarType.STRING */ },
+      { no: 9999, name: 'name', kind: 'scalar', T: 9 /*ScalarType.STRING*/ },
       {
         no: 1,
         name: 'sourceId',
         kind: 'scalar',
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }
@@ -2008,86 +2001,86 @@ export const BrokenBackupSource = new BrokenBackupSource$Type()
 class BackupTracking$Type extends MessageType<BackupTracking> {
   constructor() {
     super('BackupTracking', [
-      { no: 1, name: 'syncId', kind: 'scalar', T: 5 /* ScalarType.INT32 */ },
+      { no: 1, name: 'syncId', kind: 'scalar', T: 5 /*ScalarType.INT32*/ },
       {
         no: 2,
         name: 'libraryId',
         kind: 'scalar',
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 3,
         name: 'mediaIdInt',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 4,
         name: 'trackingUrl',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 5,
         name: 'title',
         kind: 'scalar',
         opt: true,
-        T: 9 /* ScalarType.STRING */,
+        T: 9 /*ScalarType.STRING*/,
       },
       {
         no: 6,
         name: 'lastChapterRead',
         kind: 'scalar',
         opt: true,
-        T: 2 /* ScalarType.FLOAT */,
+        T: 2 /*ScalarType.FLOAT*/,
       },
       {
         no: 7,
         name: 'totalChapters',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 8,
         name: 'score',
         kind: 'scalar',
         opt: true,
-        T: 2 /* ScalarType.FLOAT */,
+        T: 2 /*ScalarType.FLOAT*/,
       },
       {
         no: 9,
         name: 'status',
         kind: 'scalar',
         opt: true,
-        T: 5 /* ScalarType.INT32 */,
+        T: 5 /*ScalarType.INT32*/,
       },
       {
         no: 10,
         name: 'startedReadingDate',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 11,
         name: 'finishedReadingDate',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
       {
         no: 100,
         name: 'mediaId',
         kind: 'scalar',
         opt: true,
-        T: 3 /* ScalarType.INT64 */,
-        L: 0 /* LongType.BIGINT */,
+        T: 3 /*ScalarType.INT64*/,
+        L: 0 /*LongType.BIGINT*/,
       },
     ])
   }

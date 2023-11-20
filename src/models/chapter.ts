@@ -1,8 +1,5 @@
-import type { Manga } from './manga'
-
 export class Chapter {
   constructor(
-    public manga: Manga,
     public url: string,
     public name: string,
     public scanlator?: string,

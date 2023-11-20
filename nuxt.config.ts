@@ -4,7 +4,9 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     '@nuxt/ui',
     'nuxt3-localforage',
+    '@pinia/nuxt',
   ],
+  css: ['assets/css/main.css'],
   vite: {
     optimizeDeps: {
       include: ['localforage'],
@@ -28,4 +30,14 @@ export default defineNuxtConfig({
     renderer: {},
   },
   srcDir: 'src/',
+  components: [
+    {
+      global: true,
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
+  devtools: {
+    enabled: true,
+  },
 })
