@@ -1,30 +1,35 @@
 import fs from 'fs/promises'
 import zlib from 'node:zlib'
-import { dialog, shell } from 'electron'
+import { dialog, shell, type IpcMainInvokeEvent } from 'electron'
 
 export interface ElectronAPI {
-  [key: string]: (...args: any[]) => Promise<any>
+  loadBackupFromPath(
+    event: IpcMainInvokeEvent,
+  ): Promise<ArrayBufferLike | undefined>
 
-  /**
-   * Opens a file dialog and returns the ungzipped contents of the file selected.
-   */
-  loadBackupFromPath(): Promise<ArrayBufferLike | undefined>
+  openExternalLink(event: IpcMainInvokeEvent, link: string): Promise<boolean>
+}
 
-  /**
-   * Opens the given link in the default browser.
-   * @param link The link to open
-   */
-  openExternalLink(link: string): Promise<boolean>
+type OmitFirstArg<F> = F extends (
+  x: IpcMainInvokeEvent,
+  ...args: infer P
+) => infer R
+  ? (...args: P) => R
+  : never
+
+export interface ElectronRendererAPI {
+  loadBackupFromPath: OmitFirstArg<ElectronAPI['loadBackupFromPath']>
+  openExternalLink: OmitFirstArg<ElectronAPI['openExternalLink']>
 }
 
 declare global {
   interface Window {
-    ElectronAPI: ElectronAPI
+    ElectronAPI: ElectronRendererAPI
   }
 }
 
 export const api: ElectronAPI = {
-  loadBackupFromPath: async () => {
+  loadBackupFromPath: async (_event) => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
       properties: ['openFile'],
     })
@@ -44,7 +49,7 @@ export const api: ElectronAPI = {
     return fileData.buffer
   },
 
-  openExternalLink: async (...args: any[]): Promise<boolean> => {
+  openExternalLink: async (_event, args): Promise<boolean> => {
     const link = args[0]
     await shell.openExternal(link)
     return true
