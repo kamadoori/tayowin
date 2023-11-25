@@ -22,8 +22,8 @@
         />
         <UVerticalNavigation
           :links="links"
-          @click="isOpen = false"
           class="m-2"
+          @click="isOpen = false"
         />
       </header>
     </USlideover>
