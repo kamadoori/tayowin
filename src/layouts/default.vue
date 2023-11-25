@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="flex flex-row w-screen">
-      <TayoHeader class="m-1" />
-      <NuxtPage class="flex-grow" />
+    <TayoHeader class="absolute" />
+    <div class="flex h-screen flex-col">
+      <NuxtPage />
+      <TayoFooter />
     </div>
-    <TayoFooter />
   </div>
 </template>
 

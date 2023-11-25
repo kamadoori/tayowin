@@ -6,10 +6,9 @@ export default defineNuxtConfig({
     'nuxt3-localforage',
     '@pinia/nuxt',
   ],
-  css: ['assets/css/main.css'],
   vite: {
     optimizeDeps: {
-      include: ['localforage'],
+      include: ['localforage', '@protobuf-ts/runtime'],
     },
   },
   electron: {

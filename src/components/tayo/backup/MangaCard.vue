@@ -3,31 +3,21 @@
     <template #header>
       <h1 class="text-2xl font-light">{{ manga.title }}</h1>
     </template>
-    <div class="flex">
-      <div class="cover flex-shrink max-w-xs">
-        <img
-          :src="manga.thumbnailUrl"
-          class="object-contain"
-          alt=""
-          srcset=""
-        />
+    <div class="flex flex-col justify-between">
+      <div class="flex w-full flex-row">
+        <div class="m-4 flex flex-col">
+          <div v-for="field in fields" :key="field.name" class="p-1">
+            {{ field.name }}
+          </div>
+        </div>
+        <div class="m-4 flex flex-col">
+          <div v-for="field in fields" :key="field.name" class="p-1">
+            {{ resolvePath(manga, field.key, null) }}
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col justify-between">
-        <div class="flex flex-row w-full">
-          <div class="flex flex-col m-4">
-            <div v-for="field in fields" :key="field.name" class="p-1">
-              {{ field.name }}
-            </div>
-          </div>
-          <div class="flex flex-col m-4">
-            <div v-for="field in fields" :key="field.name" class="p-1">
-              {{ resolvePath(manga, field.key, null) }}
-            </div>
-          </div>
-        </div>
-        <div class="flex-end m-4">
-          <a @click="openLink">Go to manga site</a>
-        </div>
+      <div class="flex-end m-4">
+        <a @click="openLink">Go to manga site</a>
       </div>
     </div>
   </UCard>

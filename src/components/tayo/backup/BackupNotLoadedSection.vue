@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row w-full p-4 justify-evenly">
-    <span class="align-middle m-auto">No backup loaded.</span>
+  <div class="flex flex-row justify-evenly p-4">
+    <span class="m-auto align-middle">No backup loaded.</span>
     <UButton class="m-auto" label="Load backup" @click="loadBackup" />
   </div>
 </template>
