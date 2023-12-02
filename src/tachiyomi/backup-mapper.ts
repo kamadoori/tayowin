@@ -1,3 +1,4 @@
+import { SourceMapper } from './source/source-mapper'
 import { Manga, Category, Source, Preference, Chapter, History } from '~/models'
 import { Backup } from '~/generated/schema'
 
@@ -9,7 +10,10 @@ export interface MangaData {
 }
 
 export class BackupMapper {
-  public static from_backup(backup: Backup): MangaData {
+  public static fromBackup(backup: Backup): MangaData {
+    const logger = useNuxtApp().$logger
+    logger.log({ backup })
+
     const manga = [] as Manga[]
     const categories = [] as Category[]
     const sources = [] as Source[]
@@ -19,7 +23,11 @@ export class BackupMapper {
       if (!backupSource.name) {
         return
       }
-      sources.push(new Source(backupSource.name))
+      sources.push(
+        SourceMapper.fromSource(
+          new Source(backupSource.name, backupSource.sourceId),
+        ),
+      )
     })
 
     backup.backupPreferences?.forEach((backupPreference) => {
@@ -42,15 +50,12 @@ export class BackupMapper {
         !backupManga.url
       ) {
         // TODO: Handle null values gracefully
-        console.log('null value')
+        logger.log('Null value in manga')
         return
       }
 
-      const dateAdded = Date.now()
-
-      const chapters: Chapter[] = []
-      backupManga.chapters.forEach((backupChapter) => {
-        chapters.push(
+      const chapters = backupManga.chapters.map(
+        (backupChapter) =>
           new Chapter(
             backupChapter.url,
             backupChapter.name,
@@ -72,19 +77,26 @@ export class BackupMapper {
               ? new Date(Number(backupChapter.lastModifiedAt))
               : new Date(0),
           ),
-        )
+      )
+      chapters.sort((a, b) => {
+        if (!a.chapterNumber || !b.chapterNumber) {
+          return 0
+        }
+        return b.chapterNumber - a.chapterNumber
       })
 
       const history: History[] = []
 
-      const source = {} as any
+      const source = sources.find((source) => source.id === backupManga.source)
 
       const tracking = {} as any
 
       const newManga = new Manga(
         backupManga.author,
         chapters,
-        dateAdded,
+        backupManga.dateAdded
+          ? new Date(Number(backupManga.dateAdded))
+          : new Date(0),
         backupManga.description,
         backupManga.genre,
         history,
@@ -96,7 +108,7 @@ export class BackupMapper {
         backupManga.url,
         backupManga.viewerFlags || 0,
       ) as any
-      newManga.categories = Object.assign([], backupManga.categories)
+      newManga.categories = backupManga.categories.map((category) => category)
       manga.push(newManga)
     })
 
@@ -119,15 +131,18 @@ export class BackupMapper {
       categories.push(category)
     })
 
-    return {
+    const result = {
       manga,
       categories,
       sources,
       preferences,
     }
+    logger.log({ result })
+
+    return result
   }
 
-  public static to_backup(data: MangaData): Backup {
+  public static toBackup(data: MangaData): Backup {
     // TODO: Implement so format can be used as Tachiyomi backup
     console.log({ data })
     return Backup.create()

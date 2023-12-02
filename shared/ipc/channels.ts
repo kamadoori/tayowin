@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 import zlib from 'node:zlib'
-import { dialog, shell, type IpcMainInvokeEvent } from 'electron'
+import { dialog, shell, type IpcMainInvokeEvent, net } from 'electron'
 
 /**
  * This module sets up types for both the main and rendering sides of the application.
@@ -15,6 +15,12 @@ export interface ElectronAPI {
   ): Promise<ArrayBufferLike | undefined>
 
   openExternalLink(event: IpcMainInvokeEvent, link: string): Promise<boolean>
+
+  fetchWithReferer(
+    event: IpcMainInvokeEvent,
+    url: string,
+    referer: string,
+  ): Promise<ArrayBufferLike | undefined>
 }
 
 type OmitInbetweenArgs<F> = F extends (
@@ -80,5 +86,31 @@ export const api: ElectronMainAPI = {
     const link = args[0]
     await shell.openExternal(link)
     return true
+  },
+
+  fetchWithReferer: async (
+    _event,
+    args: any[],
+  ): Promise<ArrayBufferLike | undefined> => {
+    const url = args[0]
+    const referer = args[1]
+
+    console.log({ url })
+    console.log({ referer })
+
+    const response = await net.fetch(url, {
+      headers: [
+        ['Referer', referer],
+        ['content-type', 'image/jpeg'],
+      ],
+    })
+
+    if (!response.ok) {
+      return undefined
+    }
+    const buf = await response.arrayBuffer()
+    // const resourceUrl = URL.createObjectURL(blob)
+
+    return buf
   },
 }

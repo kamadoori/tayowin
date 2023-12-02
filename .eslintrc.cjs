@@ -18,6 +18,25 @@ module.exports = {
     'vue/html-self-closing': 'off',
     'vue/multi-word-component-names': 'off',
     'dot-notation': 'off',
+    'vue/attributes-order': [
+      'error',
+      {
+        order: [
+          'DEFINITION',
+          'LIST_RENDERING',
+          'CONDITIONALS',
+          'RENDER_MODIFIERS',
+          'GLOBAL',
+          ['UNIQUE', 'SLOT'],
+          'TWO_WAY_BINDING',
+          'OTHER_DIRECTIVES',
+          'OTHER_ATTR',
+          'EVENTS',
+          'CONTENT',
+        ],
+        alphabetical: true,
+      },
+    ],
   },
   ignorePatterns: ['dist-electron/**'],
 }

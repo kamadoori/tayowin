@@ -21,7 +21,6 @@ function insertIpcMainHandlers() {
 function bootstrap() {
   insertIpcMainHandlers()
 
-  // Window
   win = new BrowserWindow({
     webPreferences: {
       preload,
@@ -30,9 +29,12 @@ function bootstrap() {
       nodeIntegration: true,
       webSecurity: false,
     },
+    width: 800,
+    height: 1000,
   })
 
-  // Get proper URL
+  win.removeMenu()
+
   if (process.env.VITE_DEV_SERVER_URL) {
     win.loadURL(process.env.VITE_DEV_SERVER_URL)
     win.webContents.openDevTools({ mode: 'detach' })

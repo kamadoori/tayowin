@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TayoHeader class="absolute" />
+    <TayoHeader class="fixed" />
     <div class="flex h-screen flex-col">
       <NuxtPage />
       <TayoFooter />

@@ -4,7 +4,7 @@
     <BackupNotLoadedSection v-else />
     <h1 class="m-12 mb-4 text-5xl font-light">Manga</h1>
     <div class="manga-list">
-      <MangaCard
+      <BackupMangaCard
         v-for="manga in mangaDataStore.data.manga"
         :key="manga.title"
         :manga="manga"

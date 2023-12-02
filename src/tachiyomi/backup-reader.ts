@@ -7,7 +7,7 @@ export class BackupReader {
       (await window.ElectronAPI.loadBackupFromPath()) as ArrayBufferLike,
     )
     const backup = Backup.fromBinary(backupString)
-    const appData = BackupMapper.from_backup(backup)
+    const appData = BackupMapper.fromBackup(backup)
 
     return appData
   }

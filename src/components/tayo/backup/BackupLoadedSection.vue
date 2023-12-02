@@ -1,7 +1,7 @@
 <template>
   <div class="m-2 flex flex-row justify-evenly">
     <span>Backup loaded!</span>
-    <UButton variant="link" label="Load new backup" @click="loadBackup" />
+    <UButton label="Load new backup" variant="link" @click="loadBackup" />
   </div>
 </template>
 
